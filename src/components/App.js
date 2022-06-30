@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import UserContext from "../contexts/UserContext";
 
 import SignIn from "./SignIn";
+import SignUp from "./SignUp";
 
 export default function App(){
     const [userdata, setUserdata] = useState("");
@@ -13,6 +14,7 @@ export default function App(){
             <BrowserRouter>
                 <Routes>
                     <Route path="/" element={<SignIn />} />
+                    <Route path="/SignUp" element={<SignUp />} />
                 </Routes>
             </BrowserRouter>
         </UserContext.Provider>
