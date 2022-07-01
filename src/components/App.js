@@ -5,6 +5,7 @@ import UserContext from "../contexts/UserContext";
 
 import SignIn from "./SignIn";
 import SignUp from "./SignUp";
+import MyAccount from "./MyAccount";
 
 export default function App(){
     const [userdata, setUserdata] = useState("");
@@ -15,6 +16,7 @@ export default function App(){
                 <Routes>
                     <Route path="/" element={<SignIn />} />
                     <Route path="/SignUp" element={<SignUp />} />
+                    <Route path="/MyAccount" element={<MyAccount />} />
                 </Routes>
             </BrowserRouter>
         </UserContext.Provider>

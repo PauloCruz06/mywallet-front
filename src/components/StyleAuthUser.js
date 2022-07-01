@@ -28,7 +28,7 @@ export const Form = styled.form`
     display: flex;
     flex-direction: column;
     .pale{
-        filter: contrast(75%);
+        filter: contrast(80%);
     }
     > input{
         width: 326px;
@@ -47,7 +47,7 @@ export const Form = styled.form`
             color: #000000;
         }
     }
-    > button{
+    > button, > div{
         width: 326px;
         height: 46px;
         display: flex;
