@@ -61,6 +61,44 @@ export default function MyAccount(){
         navigate("/");
     }
 
+    function updateTransaction(){
+        let value = 0;
+
+        if(userdata){
+            const config = {
+                headers: {
+                    Authorization: `Bearer ${userdata.token}`
+                }
+            };
+
+            const promise = axios.get(
+                `https://projeto13mywalletdb.herokuapp.com/transactions`,
+                config
+            );
+
+            promise.then((re) => {
+                setTransactionsList(re.data);
+                re.data.forEach((trans) => {
+                    if(trans.isPayment){
+                        value = value - trans.amount;
+                    }else{
+                        value = value + trans.amount;
+                    }
+                });
+                setBalance(value);
+                setLoading(false);
+            }).catch(() => {
+                alert("Não foi possível acessar os dados, por favor entre novamente");
+                localStorage.removeItem('data');
+                navigate("/");
+            });
+        } else{
+            alert("Não foi possível acessar os dados, por favor entre novamente");
+            localStorage.removeItem('data');
+            navigate("/");
+        }
+    }
+
     return (
         <Div>
             <Topbar>
@@ -85,6 +123,8 @@ export default function MyAccount(){
                                 description={trans.description}
                                 amount={trans.amount}
                                 isPayment={trans.isPayment}
+                                id={trans.id}
+                                update={updateTransaction}
                             />
                         ))}
                        <div className="balance">

@@ -82,7 +82,7 @@ export default function Deposits(){
                     </div>
                  :
                     <button type="submit" >
-                        Salvar entrada
+                        Salvar saída
                     </button>
                 }
             </Form>
