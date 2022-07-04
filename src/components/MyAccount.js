@@ -53,7 +53,6 @@ export default function MyAccount(){
                 navigate("/");
             });
         } else{
-            console.log("sem userdata")
             alert("Não foi possível acessar os dados, por favor entre novamente");
             localStorage.removeItem('data');
             navigate("/");
