@@ -63,3 +63,22 @@ export const Form = styled.form`
         margin-bottom: 32px;
     }
 `
+
+export const Topbar = styled.div`
+    width: 90%;
+    height: auto;
+    margin-bottom: 22px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    > p{
+        color: #FFFFFF;
+        font-weight: 700;
+        font-size: 26px;
+    }
+    > img{
+        width: 23px;
+        height: 24px;
+    }
+`

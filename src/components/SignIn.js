@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import dotenv from "dotenv";
@@ -37,6 +37,7 @@ export default function SignIn(){
         );
 
         promise.then((re) => {
+            setLoading(false);
             setUserdata(re.data);
             const data = { ...re.data };
             const dataString = JSON.stringify(data);
