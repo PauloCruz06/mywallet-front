@@ -1,7 +1,6 @@
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import dotenv from "dotenv";
 
 import UserContext from "../contexts/UserContext";
 
@@ -15,8 +14,6 @@ export default function Deposits(){
     const [loading, setLoading] = useState(false);
     const { userdata } = useContext(UserContext);
     const navigate = useNavigate();
-
-    dotenv.config();
 
     function send(e){
         e.preventDefault();
@@ -37,7 +34,7 @@ export default function Deposits(){
                 }
             }
             const promise = axios.post(
-                `${process.env.REACT_APP_SERVER_URL}/transactions`,
+                `https://projeto13mywalletdb.herokuapp.com/transactions`,
                 body,
                 config
             );

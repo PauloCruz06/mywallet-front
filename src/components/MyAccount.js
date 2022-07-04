@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import axios from "axios";
-import dotenv from "dotenv";
 
 import Transactionslist from "./Transactionslist";
 import UserContext from "../contexts/UserContext";
@@ -12,13 +11,11 @@ import logout from "./assets/images/Vector.png";
 import { Div, Topbar } from "./StyleAuthUser";
 
 export default function MyAccount(){
-    const [transactionsList, setTransactionsList] = useState("");
+    const [transactionsList, setTransactionsList] = useState([]);
     const [loading, setLoading] = useState(false);
     const [balance, setBalance] = useState(0);
     const { userdata } = useContext(UserContext);
     const navigate = useNavigate();
-    
-    dotenv.config();
 
     useEffect(() => {
         let value = 0;
@@ -32,7 +29,7 @@ export default function MyAccount(){
             };
 
             const promise = axios.get(
-                `${process.env.REACT_APP_SERVER_URL}/transactions`,
+                `https://projeto13mywalletdb.herokuapp.com/transactions`,
                 config
             );
 
@@ -75,7 +72,7 @@ export default function MyAccount(){
                 <img alt="logout" src={logout} onClick={signout} />
             </Topbar>
             <TransactionsConteiner>
-                {transactionsList === "" ?
+                {transactionsList.length === 0 ?
                     <div className="notransactions">
                         Não há registros de entrada ou saída
                     </div>

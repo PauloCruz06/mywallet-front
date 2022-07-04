@@ -1,7 +1,6 @@
 import { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import dotenv from "dotenv";
 
 import UserContext from "../contexts/UserContext";
 import logo from "./assets/images/MyWallet.png";
@@ -15,8 +14,6 @@ export default function SignIn(){
     const[loading, setLoading] = useState(false);
     const{ setUserdata } = useContext(UserContext);
     const navigate = useNavigate();
-
-    dotenv.config();
 
     const userlogin = localStorage.getItem('data');
     if(userlogin){
@@ -32,7 +29,7 @@ export default function SignIn(){
     if(loading){
         const body = { email, password };
         const promise = axios.post(
-            `${process.env.REACT_APP_SERVER_URL}/sign-in`,
+            `https://projeto13mywalletdb.herokuapp.com/sign-in`,
             body
         );
 

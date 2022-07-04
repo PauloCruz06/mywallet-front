@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export default function Transactionslist({day, description, amount, isPayment}){
-    console.log(description);
     return(
         <Transaction>
             <div className="day_descpription"><div className="day">{`${day}`}</div> {`${description}`}</div>

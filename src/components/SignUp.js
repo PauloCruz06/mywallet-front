@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import dotenv from "dotenv";
 
 import logo from "./assets/images/MyWallet.png";
 
@@ -15,8 +14,6 @@ export default function SignUp(){
     const [passwordconfirm, setPasswordconfirm] = useState("");
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
-
-    dotenv.config();
 
     function signup(e){
         e.preventDefault();
@@ -32,7 +29,7 @@ export default function SignUp(){
             passwordconfirm
         }
         const promise = axios.post(
-            `${process.env.REACT_APP_SERVER_URL}/sign-up`,
+            `https://projeto13mywalletdb.herokuapp.com/sign-up`,
             body
         );
 
