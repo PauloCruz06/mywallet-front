@@ -29,7 +29,7 @@ export default function MyAccount(){
             };
 
             const promise = axios.get(
-                `https://projeto13mywalletdb.herokuapp.com/transactions`,
+                `${process.env.REACT_APP_URL_API}/transactions`,
                 config
             );
 
@@ -72,7 +72,7 @@ export default function MyAccount(){
             };
 
             const promise = axios.get(
-                `https://projeto13mywalletdb.herokuapp.com/transactions`,
+                `${process.env.REACT_APP_URL_API}/transactions`,
                 config
             );
 

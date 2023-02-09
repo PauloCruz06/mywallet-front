@@ -29,7 +29,7 @@ export default function SignUp(){
             passwordconfirm
         }
         const promise = axios.post(
-            `https://projeto13mywalletdb.herokuapp.com/sign-up`,
+            `${process.env.REACT_APP_URL_API}/sign-up`,
             body
         );
 

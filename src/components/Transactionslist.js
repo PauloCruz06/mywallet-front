@@ -20,7 +20,7 @@ export default function Transactionslist({day, description, amount, isPayment, i
                 }
             }
             const promise = axios.delete(
-                `https://projeto13mywalletdb.herokuapp.com/transactions/${id}`,
+                `${process.env.REACT_APP_URL_API}/transactions/${id}`,
                 config,
             );
 

@@ -34,7 +34,7 @@ export default function Deposits(){
                 }
             }
             const promise = axios.post(
-                `https://projeto13mywalletdb.herokuapp.com/transactions`,
+                `${process.env.REACT_APP_URL_API}/transactions`,
                 body,
                 config
             );
